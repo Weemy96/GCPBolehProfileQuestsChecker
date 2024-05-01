@@ -24,7 +24,6 @@ This script is help for check and count badges form your Google Cloud Boosts Ski
 1. Open a terminal window.
 2. Navigate to the directory where your script is located.
 3. Run the script with the profile URL as an argument:
-4. 
   ```bash
   python skill.py [profile_URL]
   ```
