@@ -27,19 +27,19 @@ end_date = datetime.strptime(end_date_str, "%b %d, %Y") + timezone_offset
 webpage = requests.get(boostskillProfile_URL, headers={'User-Agent': 'Mozilla/5.0'})
 soup = BeautifulSoup(webpage.content, 'html.parser')
 
-quests_requested=[
-##AI/ML:
-#Skill Badges
-"Get Started with TensorFlow on Google Cloud",
+quests_requested = [
+# AI/ML:
+# Skill Badges
+"Classify Images with TensorFlow on Google Cloud",
 "Build LookML Objects in Looker",
 "Detect Manufacturing Defects using Visual Inspection AI",
 "Analyze Speech and Language with Google APIs",
 "Analyze Images with the Cloud Vision API",
 "Analyze Sentiment with Natural Language API",
-"Predict Soccer Match Outcomes with BigQuery ML",
+"Perform Predictive Data Analysis in BigQuery",
 "Create ML Models with BigQuery ML",
  
-#Regular Badges
+# Regular Badges
 "Integrating Applications with Gemini 1.0 Pro on Google Cloud",
 "Intro to ML: Language Processing",
 "Intro to ML: Image Processing",
@@ -52,20 +52,20 @@ quests_requested=[
 "ML Pipelines on Google Cloud",
 "Gemini for Data Scientists and Analysts",
 
-##Infrastructure & Security:
-#Skill Badges
-"Create and Manage AlloyDB Databases",
-"Manage PostgreSQL Databases on Cloud SQL",
+# Infrastructure & Security:,
+# Skill Badges
+"Create and Manage AlloyDB Instances",
+"Create and Manage Cloud SQL for PostgreSQL Instances",
 "Monitor and Manage Google Cloud Resources",
 "Manage Kubernetes in Google Cloud",
 "Build Infrastructure with Terraform on Google Cloud",
-
-#Regular Badges
+ 
+# Regular Badges
 "Baseline: Infrastructure",
 "Google Cloud Computing Foundations: Infrastructure in Google Cloud - Locales",
 "Security Best Practices in Google Cloud",
 "Securing your Network with Cloud Armor",
-"Google Cloud Computing Foundations: Networking & Security in Google Cloud",
+"Google Cloud Computing Foundations: Networking and Security in Google Cloud",
 "Mitigating Security Vulnerabilities on Google Cloud"
 ]
 
@@ -74,9 +74,9 @@ date_comp = []
 total_match = 0
 #### corse name
 for span in soup.findAll('span', {'class':'ql-title-medium l-mts'}):
-    quests_requested = span.get_text().replace('\n','')
+    quests_completed = span.get_text().replace('\n','')
     # print(quests_requested)
-    skill.append(quests_requested)
+    skill.append(quests_completed)
 ### corse complete date
 for span in soup.findAll('span', {'class':'ql-body-medium l-mbs'}):
     date_comp.append(span.get_text().replace('\n',''))

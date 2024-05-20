@@ -27,3 +27,4 @@ This script is help for check and count badges form your Google Cloud Boosts Ski
   ```bash
   python skill.py [profile_URL]
   ```
+  - If you forget to include the argument, it will also request that you enter your profile link.
