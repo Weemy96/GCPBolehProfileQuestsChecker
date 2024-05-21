@@ -69,6 +69,26 @@ quests_requested = [
 "Mitigating Security Vulnerabilities on Google Cloud"
 ]
 
+must_done_quests_requested = [
+# Skill Badges
+"Classify Images with TensorFlow on Google Cloud",
+"Build LookML Objects in Looker",
+"Detect Manufacturing Defects using Visual Inspection AI",
+"Analyze Speech and Language with Google APIs",
+"Analyze Images with the Cloud Vision API",
+"Analyze Sentiment with Natural Language API",
+"Perform Predictive Data Analysis in BigQuery",
+"Create ML Models with BigQuery ML",
+
+# Infrastructure & Security:,
+# Skill Badges
+"Create and Manage AlloyDB Instances",
+"Create and Manage Cloud SQL for PostgreSQL Instances",
+"Monitor and Manage Google Cloud Resources",
+"Manage Kubernetes in Google Cloud",
+"Build Infrastructure with Terraform on Google Cloud"
+]
+
 skill = []
 date_comp = []
 total_match = 0
@@ -102,5 +122,13 @@ matched_entries = [entry for entry in filtered_data if any(skill in entry[0] for
 
 print(tabulate(matched_entries,headers=["Quest Metched","Date of Complete"]))
 print("\nTotal: "+ str(len(matched_entries)))
+
+must_done_count = [entry for entry in filtered_data if any(skill in entry[0] for skill in must_done_quests_requested)]
+print("Total Skill badges: %s"%len(must_done_count))
+if(len(must_done_count) >= 6):
+    print("✅ Complete with requested Skill badges.")
+else:
+    print("❌ Not requested, must done with 6 skill badges, you currently in %s. 💪 Keep going."%str(len(must_done_count)))
+
 if(len(matched_entries)<= 0):
     print("Maybe your Profile URL wrong / Profile URL not public and accessible / Not earned the badge")
