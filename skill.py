@@ -89,6 +89,9 @@ must_done_quests_requested = [
 "Build Infrastructure with Terraform on Google Cloud"
 ]
 
+def normalize_spaces(text):
+    return re.sub(r'\s+', ' ', text).strip()
+
 skill = []
 date_comp = []
 total_match = 0
@@ -99,7 +102,7 @@ for span in soup.findAll('span', {'class':'ql-title-medium l-mts'}):
     skill.append(quests_completed)
 ### corse complete date
 for span in soup.findAll('span', {'class':'ql-body-medium l-mbs'}):
-    date_comp.append(span.get_text().replace('\n',''))
+    date_comp.append(normalize_spaces(span.get_text().replace('\n','')))
 result = zip(skill,date_comp)
 
 
